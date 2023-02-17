@@ -21,7 +21,14 @@ public class GameDirector : MonoBehaviour
     void Update()
     {
         float length = this.flag.transform.position.x - this.car.transform.position.x;
-        Debug.Log(length);
-        this.distance.GetComponent<TextMeshProUGUI>().text = "목표 지점까지 " + length.ToString("F2") + "m";
+        
+        if(length >= 0)
+        {
+            this.distance.GetComponent<TextMeshProUGUI>().text = "목표 지점까지 " + length.ToString("F2") + "m";
+        }
+        else
+        {
+            this.distance.GetComponent<TextMeshProUGUI>().text = "게임 오버!";
+        }
     }
 }
