@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController2 : MonoBehaviour
 {
@@ -45,6 +46,13 @@ public class PlayerController2 : MonoBehaviour
             transform.localScale = new Vector3(key, 1, 1);
         }
 
+        // 플레이어 속도에 맞춰 애니메이션 속도를 바꾼다.
         this.animator.speed = speedx / 2.0f;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("골");
+        SceneManager.LoadScene("Chapter 6(2)");
     }
 }
